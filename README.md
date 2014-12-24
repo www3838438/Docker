@@ -2,6 +2,7 @@
 
 ##Quick Start
 ```bash
+    $ git clone https://github.com/htmlgraphic/Docker.git && cd Docker
     $ cd Docker/Apache
     $ make
     $ make build
