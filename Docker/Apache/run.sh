@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Append the location of the internal mysql server to /etc/hosts
+wget http://stedolan.github.io/jq/download/linux64/jq
+chmod +x ./jq
+sudo cp jq /usr/bin
 ipaddr="$(curl -L $IPADDR:4001/v2/keys/services/mysqld | jq '.node.value')"
 echo -e "$ipaddr    mysql" | sed -e 's/"//g' >> /etc/hosts
 
