@@ -73,6 +73,8 @@ ADD ./postfix-local-setup.sh /opt/postfix-local-setup.sh
 ADD ./mac-permisions.sh /opt/mac-permisions.sh
 RUN chmod 755 /opt/*
 
+# Add VOLUMEs to allow backup of config and databases
+VOLUME  ["/data"]
 
 # Note that EXPOSE only works for inter-container links. It doesn't make ports accessible from the host. To expose port(s) to the host, at runtime, use the -p flag.
 EXPOSE 22
