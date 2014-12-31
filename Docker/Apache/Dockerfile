@@ -11,7 +11,8 @@ RUN apt-get update && apt-get -yq install \
         php5-gd \
         php5-curl \
         php-pear \
-        php-apc
+        php-apc \
+        aptitude && aptitude install apache2-suexec-pristine
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install \
         supervisor \
@@ -46,8 +47,9 @@ RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCbKBlYPbK29pUUwtwRIIjwCtZNujOUb7
 RUN pear install HTML_QuickForm
 
 # Enable Apache mods.
-RUN a2enmod php5 && a2enmod rewrite && a2enmod ssl && php5enmod mcrypt
+RUN a2enmod php5 && a2enmod suexec && a2enmod userdir && a2enmod rewrite && a2enmod ssl && php5enmod mcrypt
  
+
 
 # Manually set the apache environment variables in order to get apache to work immediately.
 ENV APACHE_RUN_USER www-data
