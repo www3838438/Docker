@@ -43,6 +43,11 @@ if [ ! -d /data/apache2 ]; then
 
 fi
 
+
+mv /opt/ssl-cert-snakeoil.key /data/apache2/ssl/ssl-cert-snakeoil.key
+mv /opt/ssl-cert-snakeoil.pem /data/apache2/ssl/ssl-cert-snakeoil.pem
+
+
 # Tweak Apache build
 sed -i 's|\[PHP\]|\[PHP\] \nIS_LIVE=1 \nIS_DEV=1 \n;The IS_DEV is set for testing outside of DEV environments ie: test.domain.tld|g' /etc/php5/apache2/php.ini
 sed -i 's|;include_path = ".:/usr/share/php"|include_path = ".:/usr/share/php:/data/pear"|g' /etc/php5/apache2/php.ini
