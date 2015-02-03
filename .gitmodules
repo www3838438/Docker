@@ -3,4 +3,4 @@
 	url = https://github.com/htmlgraphic/Postfix
 [submodule "Docker/Apache"]
 	path = Docker/Apache
-	url = git@github.com:htmlgraphic/Apache.git
+	url = https://github.com/htmlgraphic/Apache
