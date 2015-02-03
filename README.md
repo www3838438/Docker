@@ -18,18 +18,9 @@ If you found this repo you are probably looking into Docker or already have know
 * [**Docker**](https://github.com/htmlgraphic/Docker) - Build scripts the creation of my different types of servers. 
 
 
-#####Apache Web Server
-* **.dockerignore** - Files that should be ignored during the build process
-* **apache-config.conf** - The default configuration used by Apache
-* **Dockerfile** - Uses a basefile build to help speed up the docker container build process
-* **index.php** - Default page displayed via Apache, type in the IP address of the running container and this page should load
-* **mac-permissions.sh** - Run manually on container to match uid / gid permissions of local docker container to Mac OS X
-* **Makefile** - A helpful file used to streamline the creation of containers
-* **postfix-local-setup.sh** - Script ran manually on container to direct email to a gated email relay server, no emails are sent out to actual inboxes
-* **postfix.sh** - Used by *supervisord.conf* to start Postfix
-* **run.sh** - Setup apache, move around conf files, start process on container
-* **sample.conf** - Move and edit this file into `/data/apache2/sites-enabled` to host the various domains you need to host
-* **supervisord.conf** - Supervisor is a client/server system that allows its users to monitor and control a number of processes on UNIX-like operating systems
+---
+
+#####[Apache Web Server](https://github.com/htmlgraphic/Apache)
 
 #####Base Container
 * A base container used by other builds to make the creation process faster
@@ -38,7 +29,6 @@ If you found this repo you are probably looking into Docker or already have know
 * Files and data for Apache is stored here 
 
 #####[Postfix Mail Server](https://github.com/htmlgraphic/Postfix)
-* [Github Repo](https://github.com/htmlgraphic/Postfix)
 
 #####MySQL server
 * `make build`
