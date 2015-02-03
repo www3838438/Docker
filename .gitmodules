@@ -1,3 +1,6 @@
 [submodule "Docker/Postfix"]
 	path = Docker/Postfix
 	url = https://github.com/htmlgraphic/Postfix
+[submodule "Docker/Apache"]
+	path = Docker/Apache
+	url = git@github.com:htmlgraphic/Apache.git
