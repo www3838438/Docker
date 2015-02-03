@@ -20,7 +20,8 @@ If you found this repo you are probably looking into Docker or already have know
 
 ---
 
-#####[Apache Web Server](https://github.com/htmlgraphic/Apache)
+#####[Apache Web Server](https://github.com/htmlgraphic/Apache#quick-start)
+* A web service instance to use for local development or production.
 
 #####Base Container
 * A base container used by other builds to make the creation process faster
@@ -28,7 +29,8 @@ If you found this repo you are probably looking into Docker or already have know
 #####Data Container
 * Files and data for Apache is stored here 
 
-#####[Postfix Mail Server](https://github.com/htmlgraphic/Postfix)
+#####[Postfix Mail Server](https://github.com/htmlgraphic/Postfix#quick-start)
+* A mail courier service created to help queue outgoing email from web servers.
 
 #####MySQL server
 * `make build`
