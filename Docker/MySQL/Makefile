@@ -18,7 +18,7 @@ help:
 	@echo "     make start        - Start the EXISTING $(NAME) container"
 	@echo "     make stop         - Stop $(NAME) container"
 	@echo "     make restart      - Stop and start $(NAME) container"
-	@echo "     make remove       - Stop and remove $(NAME) container"
+	@echo "     make rm       - Stop and remove $(NAME) container"
 	@echo "     make state        - View state $(NAME) container"
 	@echo "     make logs         - View logs in real time"
 
@@ -41,7 +41,7 @@ stop:
 
 restart: stop start
 
-remove: stop
+rm: stop
 	@echo "Removing $(NAME)..."
 	docker rm $(NAME) > /dev/null
 
