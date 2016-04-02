@@ -1,38 +1,33 @@
 FROM ubuntu:trusty
 MAINTAINER Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
 
-# Install packages then remove cache package list information
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-  apt-get -yq install mysql-server-5.5 pwgen \
-        git \
-        vim && rm -rf /var/lib/apt/lists/*
-
-# Remove pre-installed database
-RUN rm -rf /var/lib/mysql/*
-
 # Add MySQL configuration
-ADD my.cnf /etc/mysql/conf.d/my.cnf
-ADD mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
+COPY my.cnf /etc/mysql/conf.d/my.cnf
+COPY mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
+
+RUN apt-get update && \
+    apt-get -yq install mysql-server-5.5 pwgen && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /etc/mysql/conf.d/mysqld_safe_syslog.cnf && \
+    if [ ! -f /usr/share/mysql/my-default.cnf ] ; then cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf; fi && \
+    mysql_install_db > /dev/null 2>&1 && \
+    touch /var/lib/mysql/.EMPTY_DB
 
 # Add MySQL scripts
-ADD import_sql.sh /import_sql.sh
-ADD run.sh /run.sh
-RUN chmod 755 /*.sh
+COPY import_sql.sh /import_sql.sh
+COPY run.sh /run.sh
 
-# Exposed ENV
-ENV MYSQL_USER admin
-ENV MYSQL_PASS **Random**
-
-# Replication ENV
-ENV REPLICATION_MASTER **False**
-ENV REPLICATION_SLAVE **False**
-ENV REPLICATION_USER replica
-ENV REPLICATION_PASS replica
+ENV MYSQL_USER=admin \
+    MYSQL_PASS=**Random** \
+    ON_CREATE_DB=**False** \
+    REPLICATION_MASTER=**False** \
+    REPLICATION_SLAVE=**False** \
+    REPLICATION_USER=replica \
+    REPLICATION_PASS=replica \
+    ON_CREATE_DB=**False**
 
 # Add VOLUMEs to allow backup of config and databases
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
-# Note that EXPOSE only works for inter-container links. It doesn't make ports accessible from the host. To expose port(s) to the host, at runtime, use the -p flag.
 EXPOSE 3306
-CMD ["/bin/bash", "/run.sh"]
+CMD ["/run.sh"]
