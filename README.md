@@ -1,5 +1,3 @@
-[![Docker Build Status](https://circleci.com/gh/htmlgraphic/Docker/tree/develop.svg?style=svg&circle-token=b51ac0eded585009395fde219719b0c86f5320d2)](https://circleci.com/gh/htmlgraphic/Docker/tree/master)
-
 ##Quick Start
 ```bash
     $ git clone https://github.com/htmlgraphic/Docker.git && cd Docker
