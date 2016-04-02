@@ -3,7 +3,7 @@
 
 NAME = mysql
 IMAGE_REPO = htmlgraphic
-IMAGE_NAME = $(IMAGE_REPO)/$(NAME)
+IMAGE_NAME = $(IMAGE_REPO)/$(NAME):5.5
 DOMAIN = htmlgraphic.com
 
 all:: help
@@ -18,7 +18,7 @@ help:
 	@echo "     make start        - Start the EXISTING $(NAME) container"
 	@echo "     make stop         - Stop $(NAME) container"
 	@echo "     make restart      - Stop and start $(NAME) container"
-	@echo "     make rm       - Stop and remove $(NAME) container"
+	@echo "     make rm           - Stop and remove $(NAME) container"
 	@echo "     make state        - View state $(NAME) container"
 	@echo "     make logs         - View logs in real time"
 
