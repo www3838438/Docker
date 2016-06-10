@@ -3,7 +3,7 @@
 
 NAME = mysql
 IMAGE_REPO = htmlgraphic
-IMAGE_NAME = $(IMAGE_REPO)/$(NAME):5.5
+IMAGE_NAME = $(IMAGE_REPO)/$(NAME):5.6
 DOMAIN = htmlgraphic.com
 
 all:: help
@@ -23,7 +23,7 @@ help:
 	@echo "     make logs         - View logs in real time"
 
 build:
-	docker build --rm -t $(IMAGE_NAME) 5.5/
+	docker build --rm -t $(IMAGE_NAME) 5.6/
 
 run:
 	@echo "Creating data container for $(NAME)..."
