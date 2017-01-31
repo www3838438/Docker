@@ -10,6 +10,7 @@ RUN apt-get update && apt-get -yq install \
 		vim \
 		curl \
 		mailutils \
+		dnsutils \
 		language-pack-en \
 		iputils-ping \
 		git && rm -rf /var/lib/apt/lists/*
