@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -yq install \
 		wget \
 		zip \
+		make \
 		unzip \
 		vim \
 		curl \
