@@ -4,3 +4,6 @@
 [submodule "Docker/Apache"]
 	path = Docker/Apache
 	url = https://github.com/htmlgraphic/Apache
+[submodule "Docker/MySQL"]
+	path = Docker/MySQL
+	url = https://github.com/htmlgraphic/MySQL.git
